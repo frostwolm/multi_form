@@ -1,0 +1,3 @@
+class Mf_View {
+
+}
