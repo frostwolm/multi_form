@@ -122,11 +122,12 @@ class Mf_View {
                                         </div>
                                     </fieldset>
                                     <div class="mf-mf__buttons">
-                                        <button id="btn-back">Назад</button>
-                                        <button id="btn-forward">Далее</button>
-                                        <button type="submit" id="btn-submit">Отправить</button>
+                                        <button name="control-btn" id="btn-back">Назад</button>
+                                        <button name="control-btn" id="btn-forward">Далее</button>
+                                        <button name="control-btn" type="submit" id="btn-submit">Отправить</button>
                                     </div>
                                 </form>`;
+        this._controlBtns = {};
     }
 
     get htmlFormLayout() {
@@ -150,8 +151,79 @@ class Mf_View {
             const containerElement = document.getElementById(containerID);
             containerElement.insertAdjacentHTML('afterBegin', this.htmlFormLayout);
             this._formElement = containerElement.firstChild;
+            this.setControlBtns();
+            this.setEventListners();
+            this._maxStateNumber = document.getElementsByName('control-btn').length;
+            this.currentStateNumber = 1;
+            this.changeControlBtnsStatus();
         });
     }
+
+    setControlBtns() {
+        this._controlBtns.back = document.getElementById('btn-back');
+        this._controlBtns.forward = document.getElementById('btn-forward');
+        this._controlBtns.submit = document.getElementById('btn-submit');
+    }
+
+    setEventListners() {
+        this._controlBtns.back.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            this.changeState('back');
+        });
+        this._controlBtns.forward.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            this.changeState('forward');
+        });
+        this._controlBtns.submit.addEventListener('click', (evt) => {
+            evt.preventDefault();
+            this._controller.submitForm();
+        });
+    }
+
+    changeState(chageStatus) {
+        switch (chageStatus) {
+            case 'back':
+                console.log('back');
+                if (this.currentStateNumber > 1) {
+                    document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                    document.getElementById(`mf-mf__fs-${this.currentStateNumber - 1}`).hidden = false;
+                    this.currentStateNumber = this.currentStateNumber - 1;
+                    this.changeControlBtnsStatus();
+                }
+                break;
+            case 'forward':
+                console.log('forward');
+                if (this.currentStateNumber < this._maxStateNumber) {
+                    document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                    document.getElementById(`mf-mf__fs-${this.currentStateNumber + 1}`).hidden = false;
+                    this.currentStateNumber = this.currentStateNumber + 1;
+                    this.changeControlBtnsStatus();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    changeControlBtnsStatus() {
+        switch (this.currentStateNumber) {
+            case 1:
+                this._controlBtns.back.hidden = true;
+                this._controlBtns.forward.hidden = false;
+                this._controlBtns.submit.hidden = true;
+                break;
+            case this._maxStateNumber:
+                this._controlBtns.back.hidden = false;
+                this._controlBtns.forward.hidden = true;
+                this._controlBtns.submit.hidden = false;
+                break;
+            default:
+                this._controlBtns.back.hidden = false;
+                this._controlBtns.forward.hidden = false;
+                this._controlBtns.submit.hidden = true;
+                break;
+        }
+    };
 }
 
 class Mf_Controller {
@@ -168,6 +240,11 @@ class Mf_Controller {
 
     get model() {
         return this._model;
+    }
+
+    submitForm() {
+        console.log('submit by controller');
+
     }
 }
 
