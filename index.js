@@ -1,3 +1,30 @@
+const MODEL_DATA_ADRESSLIST = {
+    "0": {
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
+    },
+    "1": {
+        adress: 'Адресс - 1',
+        coords: "36.56667777, 34.6556777"
+    },
+    "2": {
+        adress: 'Адресс - 1',
+        coords: "36.56667777, 34.6556777"
+    },
+    "3": {
+        adress: 'Адресс - 1',
+        coords: "36.56667777, 34.6556777"
+    },
+    "4": {
+        adress: 'Адресс - 1',
+        coords: "36.56667777, 34.6556777"
+    },
+    "5": {
+        adress: 'Адресс - 1',
+        coords: "36.56667777, 34.6556777"
+    },
+};
+
 class Mf_View {
     constructor() {
         this._htmlFormLayout = `<form action="" method="post">
@@ -11,7 +38,7 @@ class Mf_View {
                                         </div>
                                     </fieldset>
                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-2" hidden>
-                                        <div class="mf-fs__description">Ваши шины на сезонном хранении в компании КОЛЕСО?</div>
+                                        <div class="mf-fs__description">Ваши шины на сезонном хранении в компании Шиный Сервис?</div>
                                         <div class="mf-fs__controls">
                                             <input type="radio" name="in-storage" id="in-storage--yes" />
                                             <label for="client-type--person">Да</label>
@@ -40,22 +67,8 @@ class Mf_View {
                                             <div class="fs__map-container">
                                                 Тут будет карта
                                             </div>
-                                            <ul class="adress-list">
-                                                <li class="adress-list__item">
-                                                    <input type="radio" name="adress" id="adress-1" /><label for="adress-1">Адрес-1</label>
-                                                </li>
-                                                <li class="adress-list__item">
-                                                    <input type="radio" name="adress" id="adress-2" /><label for="adress-2">Адрес-2</label>
-                                                </li>
-                                                <li class="adress-list__item">
-                                                    <input type="radio" name="adress" id="adress-3" /><label for="adress-3">Адрес-3</label>
-                                                </li>
-                                                <li class="adress-list__item">
-                                                    <input type="radio" name="adress" id="adress-4" /><label for="adress-4">Адрес-4</label>
-                                                </li>
-                                                <li class="adress-list__item">
-                                                    <input type="radio" name="adress" id="adress-5" /><label for="adress-5">Адрес-5</label>
-                                                </li>
+                                            <ul class="adress-list" id="adress-list">
+                                            
                                             </ul>
                                         </div>
                                     </fieldset>
@@ -121,6 +134,30 @@ class Mf_View {
                                             </div>
                                         </div>
                                     </fieldset>
+                                    <fieldset class="mf-mf__fs" id="mf-mf__fs-8" hidden>
+                                        <div class="mf-fs__description"> Укажите госномер вашей машины или номер партии хранения шин</div>
+                                        <div class="mf-fs__controls">
+                                            <label for="license-number">Госномер авто:</label>
+                                            <input type="text" name="car-license-number" placeholder="м976мм" />
+                                            <label for="license-number">Номер партии хранения:</label>
+                                            <input type="text" name="party-number" placeholder="123456" />
+                                            <div class="controls__description">
+                                                Если вы не помните номер партии хранения ваших шин, введите госномер
+                                                авто. Мы используем эту информацию чтобы найти номер партии (обычно
+                                                клиентам намного проще вспомнить госномер их авто нежели номер
+                                                партии хранения).
+                                            </div>
+                                        </div>f
+                                    </fieldset>
+                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-9" hidden>
+                                        <div class="mf-fs__description">Ваши шины на сезонном хранении в компании КОЛЕСО?</div>
+                                        <div class="mf-fs__controls">
+                                            <input type="radio" name="in-storage" id="in-storage--yes" />
+                                            <label for="client-type--person">Да</label>
+                                            <input type="radio" name="in-storage" id="in-storage--no" />
+                                            <label for="client-type--company">нет</label>
+                                        </div>
+                                    </fieldset>
                                     <div class="mf-mf__buttons">
                                         <button name="control-btn" id="btn-back">Назад</button>
                                         <button name="control-btn" id="btn-forward">Далее</button>
@@ -156,6 +193,7 @@ class Mf_View {
             this._maxStateNumber = document.getElementsByName('control-btn').length;
             this.currentStateNumber = 1;
             this.changeControlBtnsStatus();
+            this.controller.setAdressList();
         });
     }
 
@@ -180,8 +218,8 @@ class Mf_View {
         });
     }
 
-    changeState(chageStatus) {
-        switch (chageStatus) {
+    changeState(changeStatus) {
+        switch (changeStatus) {
             case 'back':
                 console.log('back');
                 if (this.currentStateNumber > 1) {
@@ -201,6 +239,12 @@ class Mf_View {
                 }
                 break;
             default:
+                if (changeStatus >= 0 || changeStatus <= this._maxStateNumber) {
+                    document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                    document.getElementById(`mf-mf__fs-${changeStatus}`).hidden = false;
+                    this.currentStateNumber = changeStatus;
+                    this.changeControlBtnsStatus();
+                }
                 break;
         }
     }
@@ -223,7 +267,10 @@ class Mf_View {
                 this._controlBtns.submit.hidden = true;
                 break;
         }
-    };
+    }
+    get adressListElement() {
+        return document.getElementById('adress-list');
+    }
 }
 
 class Mf_Controller {
@@ -246,6 +293,23 @@ class Mf_Controller {
         console.log('submit by controller');
 
     }
+
+    setAdressList() {
+        let adresses = this.model.getAdressList();
+        let listHTML = '';
+        let counter = 0;
+        for (const key in adresses) {
+            if (adresses.hasOwnProperty(key)) {
+                const adress = adresses[key];
+                counter++;
+                listHtml += `<li class="adress-list__item">
+                                <input type="radio" name="adress" id="adress-${counter}" />
+                                <label for="adress-${counter}">${adress[key].adress}</label>
+                            </li>`
+            }
+        }
+        this.view.adressListElement.insertAdjacentHTML('afterbegin', listHtml);
+    }
 }
 
 class Mf_Model {
@@ -259,6 +323,11 @@ class Mf_Model {
 
     get controller() {
         return this._controller;
+    }
+
+    getAdressList() {
+        //здесь получаем список адресов
+        return MODEL_DATA_ADRESSLIST;
     }
 }
 
