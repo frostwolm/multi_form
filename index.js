@@ -25,6 +25,9 @@ const MODEL_DATA_ADRESSLIST = {
     },
 };
 
+const FINAL_FIELDSET_NUMBER_PERSON = 6;
+const FINAL_FIELDSET_NUMBER_COMPANY = 9;
+
 class Mf_View {
     constructor() {
         this._htmlFormLayout = `<form action="" method="post">
@@ -149,13 +152,43 @@ class Mf_View {
                                             </div>
                                         </div>f
                                     </fieldset>
-                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-9" hidden>
-                                        <div class="mf-fs__description">Ваши шины на сезонном хранении в компании КОЛЕСО?</div>
+                                    <fieldset class="mf-mf__fs" id="mf-mf__fs-9" hidden>
+                                        <div class="mf-fs__description">Заполните форму</div>
                                         <div class="mf-fs__controls">
-                                            <input type="radio" name="in-storage" id="in-storage--yes" />
-                                            <label for="client-type--person">Да</label>
-                                            <input type="radio" name="in-storage" id="in-storage--no" />
-                                            <label for="client-type--company">нет</label>
+                                            <div class="fs__input-container">
+                                                <label for="company-name">Название организации:</label><input type="text" name="company-name" id="company-name"
+                                                    placeholder="ООО Аметист">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="inn">ИНН:</label><input type="number" name="inn" id="inn"
+                                                    placeholder="1234567890">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-client-name">ФИО:</label><input type="text" name="company-client-name" id="company-client-name"
+                                                    placeholder="Иванов Иван Иванович">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-client-tel">Контактный телефон:</label><input type="tel" name="company-client-tel"
+                                                    id="company-client-tel" placeholder="+79992342255">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-client-email">Контактный email:</label><input type="email" name="company-client-email"
+                                                    id="company-client-email" placeholder="ivanov@ametist.ru">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-car-brand">Марка автомобиля</label><input type="text" name="company-car-brand" id="company-car-brand">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-car-model">Модель автомобиля</label><input type="text" name="company-car-model" id="company-car-model">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-car-license-number">Госномер</label><input type="text" name="company-car-license-number"
+                                                    id="company-car-license-number">
+                                            </div>
+                                            <div class="fs__input-container">
+                                                <label for="company-party-number-final">Номер партии хранения</label><input type="text" name="company-party-number-final"
+                                                    id="company-party-number-final">
+                                            </div>
                                         </div>
                                     </fieldset>
                                     <div class="mf-mf__buttons">
