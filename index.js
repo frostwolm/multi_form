@@ -34,7 +34,7 @@ class Mf_View {
                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-1">
                                         <div class="mf-fs__description">Укажите Ваш статус клиента</div>
                                         <div class="mf-fs__controls">
-                                            <input type="radio" name="client-type" id="client-type--person" />
+                                            <input type="radio" name="client-type" id="client-type--person" checked />
                                             <label for="client-type--person">Частное лицо</label>
                                             <input type="radio" name="client-type" id="client-type--company" />
                                             <label for="client-type--company">Корпоративный клиент</label>
@@ -243,6 +243,9 @@ class Mf_View {
         });
         this._controlBtns.forward.addEventListener('click', (evt) => {
             evt.preventDefault();
+            if (this.currentStateNumber === 1) {
+                this.controller.setClientStatus();
+            }
             this.changeState('forward');
         });
         this._controlBtns.submit.addEventListener('click', (evt) => {
@@ -322,6 +325,14 @@ class Mf_Controller {
         return this._model;
     }
 
+    get isClientPerson() {
+        return this._clientStatus;
+    }
+
+    set isClientPerson(status) {
+        this._clientStatus = !!status;
+    }
+
     submitForm() {
         console.log('submit by controller');
 
@@ -342,6 +353,11 @@ class Mf_Controller {
             }
         }
         this.view.adressListElement.insertAdjacentHTML('afterbegin', listHtml);
+    }
+
+    setClientStatus() {
+        let personStatusCheck = document.getElementById('client-type--person').checked;
+        this.clientStatus = personStatusCheck;
     }
 }
 
