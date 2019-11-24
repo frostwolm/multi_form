@@ -4,29 +4,32 @@ const MODEL_DATA_ADRESSLIST = {
         "coords": "36.56667777, 34.6556777"
     },
     "1": {
-        adress: 'Адресс - 1',
-        coords: "36.56667777, 34.6556777"
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
     },
     "2": {
-        adress: 'Адресс - 1',
-        coords: "36.56667777, 34.6556777"
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
     },
     "3": {
-        adress: 'Адресс - 1',
-        coords: "36.56667777, 34.6556777"
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
     },
     "4": {
-        adress: 'Адресс - 1',
-        coords: "36.56667777, 34.6556777"
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
     },
     "5": {
-        adress: 'Адресс - 1',
-        coords: "36.56667777, 34.6556777"
+        "adress": 'Адресс - 1',
+        "coords": "36.56667777, 34.6556777"
     },
 };
 
+const START_FIELDSET_NUMBER_PERSON = 2;
 const FINAL_FIELDSET_NUMBER_PERSON = 6;
-const FINAL_FIELDSET_NUMBER_COMPANY = 9;
+const START_FIELDSET_NUMBER_COMPANY = 7;
+const FINAL_FIELDSET_NUMBER_COMPANY = 8;
+const ISSTORED_FIELDSET_NUMBER = 2;
 
 class Mf_View {
     constructor() {
@@ -43,7 +46,7 @@ class Mf_View {
                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-2" hidden>
                                         <div class="mf-fs__description">Ваши шины на сезонном хранении в компании Шиный Сервис?</div>
                                         <div class="mf-fs__controls">
-                                            <input type="radio" name="in-storage" id="in-storage--yes" />
+                                            <input type="radio" name="in-storage" id="in-storage--yes" checked />
                                             <label for="client-type--person">Да</label>
                                             <input type="radio" name="in-storage" id="in-storage--no" />
                                             <label for="client-type--company">нет</label>
@@ -53,9 +56,9 @@ class Mf_View {
                                         <div class="mf-fs__description"> Укажите госномер вашей машины или номер партии хранения шин</div>
                                         <div class="mf-fs__controls">
                                             <label for="license-number">Госномер авто:</label>
-                                            <input type="text" name="car-license-number" placeholder="м976мм" />
+                                            <input type="text" name="car-license-number" placeholder="м976мм" id="car-license-number"/>
                                             <label for="license-number">Номер партии хранения:</label>
-                                            <input type="text" name="party-number" placeholder="123456" />
+                                            <input type="text" name="party-number" placeholder="123456" id="party-number"/>
                                             <div class="controls__description">
                                                 Если вы не помните номер партии хранения ваших шин, введите госномер
                                                 авто. Мы используем эту информацию чтобы найти номер партии (обычно
@@ -105,8 +108,8 @@ class Mf_View {
                                                 <label for="car-model">Модель автомобиля</label><input type="text" name="car-model" id="car-model">
                                             </div>
                                             <div class="fs__input-container">
-                                                <label for="car-license-number">Госномер</label><input type="text" name="car-license-number"
-                                                    id="car-license-number">
+                                                <label for="car-license-number">Госномер</label><input type="text" name="car-license-number-final"
+                                                    id="car-license-number-final">
                                             </div>
                                             <div class="fs__input-container">
                                                 <label for="">Номер партии хранения</label><input type="text" name="party-number-final"
@@ -138,21 +141,6 @@ class Mf_View {
                                         </div>
                                     </fieldset>
                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-8" hidden>
-                                        <div class="mf-fs__description"> Укажите госномер вашей машины или номер партии хранения шин</div>
-                                        <div class="mf-fs__controls">
-                                            <label for="license-number">Госномер авто:</label>
-                                            <input type="text" name="car-license-number" placeholder="м976мм" />
-                                            <label for="license-number">Номер партии хранения:</label>
-                                            <input type="text" name="party-number" placeholder="123456" />
-                                            <div class="controls__description">
-                                                Если вы не помните номер партии хранения ваших шин, введите госномер
-                                                авто. Мы используем эту информацию чтобы найти номер партии (обычно
-                                                клиентам намного проще вспомнить госномер их авто нежели номер
-                                                партии хранения).
-                                            </div>
-                                        </div>f
-                                    </fieldset>
-                                    <fieldset class="mf-mf__fs" id="mf-mf__fs-9" hidden>
                                         <div class="mf-fs__description">Заполните форму</div>
                                         <div class="mf-fs__controls">
                                             <div class="fs__input-container">
@@ -183,7 +171,7 @@ class Mf_View {
                                             </div>
                                             <div class="fs__input-container">
                                                 <label for="company-car-license-number">Госномер</label><input type="text" name="company-car-license-number"
-                                                    id="company-car-license-number">
+                                                    id="company-car-license-number-final">
                                             </div>
                                             <div class="fs__input-container">
                                                 <label for="company-party-number-final">Номер партии хранения</label><input type="text" name="company-party-number-final"
@@ -223,7 +211,6 @@ class Mf_View {
             this._formElement = containerElement.firstChild;
             this.setControlBtns();
             this.setEventListners();
-            this._maxStateNumber = document.getElementsByName('control-btn').length;
             this.currentStateNumber = 1;
             this.changeControlBtnsStatus();
             this.controller.setAdressList();
@@ -239,12 +226,26 @@ class Mf_View {
     setEventListners() {
         this._controlBtns.back.addEventListener('click', (evt) => {
             evt.preventDefault();
+            if (this.currentStateNumber === ISSTORED_FIELDSET_NUMBER + 2) {
+                if (!this.controller.isInStore) {
+                    this.changeState(ISSTORED_FIELDSET_NUMBER);
+                    return;
+                }
+            }
             this.changeState('back');
         });
         this._controlBtns.forward.addEventListener('click', (evt) => {
             evt.preventDefault();
             if (this.currentStateNumber === 1) {
                 this.controller.setClientStatus();
+                return;
+            }
+            if (this.currentStateNumber === ISSTORED_FIELDSET_NUMBER) {
+                this.controller.isInStore = document.getElementById('in-storage--yes').checked;
+                if (!this.controller.isInStore) {
+                    this.changeState(ISSTORED_FIELDSET_NUMBER + 2);
+                    return;
+                }
             }
             this.changeState('forward');
         });
@@ -257,30 +258,32 @@ class Mf_View {
     changeState(changeStatus) {
         switch (changeStatus) {
             case 'back':
-                console.log('back');
-                if (this.currentStateNumber > 1) {
+                if (this.currentStateNumber === START_FIELDSET_NUMBER_COMPANY) {
                     document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
-                    document.getElementById(`mf-mf__fs-${this.currentStateNumber - 1}`).hidden = false;
-                    this.currentStateNumber = this.currentStateNumber - 1;
+                    document.getElementById(`mf-mf__fs-1`).hidden = false;
+                    this.currentStateNumber = 1;
                     this.changeControlBtnsStatus();
+                    return;
                 }
+                document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                document.getElementById(`mf-mf__fs-${this.currentStateNumber - 1}`).hidden = false;
+                this.currentStateNumber = this.currentStateNumber - 1;
+                this.changeControlBtnsStatus();
                 break;
             case 'forward':
-                console.log('forward');
-                if (this.currentStateNumber < this._maxStateNumber) {
-                    document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
-                    document.getElementById(`mf-mf__fs-${this.currentStateNumber + 1}`).hidden = false;
-                    this.currentStateNumber = this.currentStateNumber + 1;
-                    this.changeControlBtnsStatus();
+                document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                document.getElementById(`mf-mf__fs-${this.currentStateNumber + 1}`).hidden = false;
+                this.currentStateNumber = this.currentStateNumber + 1;
+                this.changeControlBtnsStatus();
+                if (this.currentStateNumber === FINAL_FIELDSET_NUMBER_COMPANY && this.currentStateNumber === FINAL_FIELDSET_NUMBER_PERSON) {
+                    this.controller.setFinalVeiwState()
                 }
                 break;
             default:
-                if (changeStatus >= 0 || changeStatus <= this._maxStateNumber) {
-                    document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
-                    document.getElementById(`mf-mf__fs-${changeStatus}`).hidden = false;
-                    this.currentStateNumber = changeStatus;
-                    this.changeControlBtnsStatus();
-                }
+                document.getElementById(`mf-mf__fs-${this.currentStateNumber}`).hidden = true;
+                document.getElementById(`mf-mf__fs-${changeStatus}`).hidden = false;
+                this.currentStateNumber = changeStatus;
+                this.changeControlBtnsStatus();
                 break;
         }
     }
@@ -292,7 +295,8 @@ class Mf_View {
                 this._controlBtns.forward.hidden = false;
                 this._controlBtns.submit.hidden = true;
                 break;
-            case this._maxStateNumber:
+            case FINAL_FIELDSET_NUMBER_PERSON:
+            case FINAL_FIELDSET_NUMBER_COMPANY:
                 this._controlBtns.back.hidden = false;
                 this._controlBtns.forward.hidden = true;
                 this._controlBtns.submit.hidden = false;
@@ -315,6 +319,14 @@ class Mf_Controller {
         this._view.controller = this;
         this._model = modelObj;
         this._model.controller = this;
+    }
+
+    set isInStore(status) {
+        this._isInStore = !!status;
+    }
+
+    get isInStore() {
+        return this._isInStore;
     }
 
     get view() {
@@ -346,18 +358,39 @@ class Mf_Controller {
             if (adresses.hasOwnProperty(key)) {
                 const adress = adresses[key];
                 counter++;
-                listHtml += `<li class="adress-list__item">
+                listHTML += `<li class="adress-list__item">
                                 <input type="radio" name="adress" id="adress-${counter}" />
-                                <label for="adress-${counter}">${adress[key].adress}</label>
+                                <label for="adress-${counter}">${adresses[key].adress}</label>
                             </li>`
             }
         }
-        this.view.adressListElement.insertAdjacentHTML('afterbegin', listHtml);
+        this.view.adressListElement.insertAdjacentHTML('afterbegin', listHTML);
     }
 
     setClientStatus() {
         let personStatusCheck = document.getElementById('client-type--person').checked;
-        this.clientStatus = personStatusCheck;
+        this.isClientPerson = personStatusCheck;
+        if (this.isClientPerson) {
+            this.view.changeState(START_FIELDSET_NUMBER_PERSON);
+        } else {
+            this.view.changeState(START_FIELDSET_NUMBER_COMPANY);
+        }
+    }
+
+    setFinalVeiwState() {
+        if (this.isClientPerson) {
+            document.getElementById('car-license-number-final').value = document.getElementById('car-license-number').value;
+            document.getElementById('party-number-final').value = document.getElementById('party-number').value;
+            document.getElementById().value = document.getElementById().value;
+            document.getElementById().value = document.getElementById().value;
+            document.getElementById().value = document.getElementById().value;
+        } else {
+            document.getElementById('company-car-license-number-final').value = document.getElementById('company-car-license-number').value;
+            document.getElementById('company-party-number-final').value = document.getElementById('company-party-number').value;
+            document.getElementById().value = document.getElementById().value;
+            document.getElementById().value = document.getElementById().value;
+            document.getElementById().value = document.getElementById().value;
+        }
     }
 }
 
