@@ -1,27 +1,123 @@
 const MODEL_DATA_ADRESSLIST = {
     "0": {
         "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "2": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [17, 18, 19, 20, 21, 22, 23],
+            "10": [18, 19, 20, 21, 22, 23],
+            "11": [19, 20, 21, 22, 23],
+            "12": [20, 21, 22, 23],
+            "13": [21, 22, 23],
+            "14": [22, 23]
+        }
     },
     "1": {
-        "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "adress": 'Адресс - 2',
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+            "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "10": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "11": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "12": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "13": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "14": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        }
     },
     "2": {
-        "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "adress": 'Адресс - 3',
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "10": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "11": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "12": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "13": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "14": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        }
     },
     "3": {
-        "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "adress": 'Адресс - 4',
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "10": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "11": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "12": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "13": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "14": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        }
     },
     "4": {
-        "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "adress": 'Адресс - 5',
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "10": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "11": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "12": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "13": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "14": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        }
     },
     "5": {
-        "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777"
+        "adress": 'Адресс - 6',
+        "coords": "36.56667777, 34.6556777",
+        "time": {
+            "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "3": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "4": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "5": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "6": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "7": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "8": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "9": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "10": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "11": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "12": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "13": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+            "14": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+        }
     },
 };
 
@@ -82,7 +178,105 @@ class Mf_View {
                                         <div class="mf-fs__description">Выберите дату и время</div>
                                         <div class="mf-fs__controls">
                                             <div class="calendar">
-                                                <input type="datetime-local" name="date-time" id="date-time">
+                                                <input type="date" name="date" id="date" >
+                                                <ul class="work-hours-list">
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-1" class="work-hour">
+                                                        <label for="work-hour-1" class="work-hour-label">00:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-2" class="work-hour">
+                                                        <label for="work-hour-2" class="work-hour-label">01:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-3" class="work-hour">
+                                                        <label for="work-hour-3" class="work-hour-label">02:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-4" class="work-hour">
+                                                        <label for="work-hour-4" class="work-hour-label">03:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-5" class="work-hour">
+                                                        <label for="work-hour-5" class="work-hour-label">04:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-6" class="work-hour">
+                                                        <label for="work-hour-6" class="work-hour-label">05:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-7" class="work-hour">
+                                                        <label for="work-hour-7" class="work-hour-label">06:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-8" class="work-hour">
+                                                        <label for="work-hour-8" class="work-hour-label">07:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-9" class="work-hour">
+                                                        <label for="work-hour-9" class="work-hour-label">08:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-10" class="work-hour">
+                                                        <label for="work-hour-10" class="work-hour-label">09:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-11" class="work-hour">
+                                                        <label for="work-hour-11" class="work-hour-label">10:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-12" class="work-hour">
+                                                        <label for="work-hour-12" class="work-hour-label">11:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-13" class="work-hour">
+                                                        <label for="work-hour-13" class="work-hour-label">12:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-14" class="work-hour">
+                                                        <label for="work-hour-14" class="work-hour-label">13:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-15" class="work-hour">
+                                                        <label for="work-hour-15" class="work-hour-label">14:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-16" class="work-hour">
+                                                        <label for="work-hour-16" class="work-hour-label">15:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-17" class="work-hour">
+                                                        <label for="work-hour-17" class="work-hour-label">16:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-18" class="work-hour">
+                                                        <label for="work-hour-18" class="work-hour-label">17:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-19" class="work-hour">
+                                                        <label for="work-hour-19" class="work-hour-label">18:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-20" class="work-hour">
+                                                        <label for="work-hour-20" class="work-hour-label">19:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-21" class="work-hour">
+                                                        <label for="work-hour-21" class="work-hour-label">20:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-22" class="work-hour">
+                                                        <label for="work-hour-22" class="work-hour-label">21:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-23" class="work-hour">
+                                                        <label for="work-hour-23" class="work-hour-label">22:00</label>
+                                                    </li>
+                                                    <li class="work-hours-item" name="work-hours-item" hidden>
+                                                        <input type="radio" name="work-hour" id="work-hour-24" class="work-hour">
+                                                        <label for="work-hour-24" class="work-hour-label">23:00</label>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </fieldset>
@@ -214,7 +408,22 @@ class Mf_View {
             this.currentStateNumber = 1;
             this.changeControlBtnsStatus();
             this.controller.setAdressList();
+            this.setDateElement();
         });
+    }
+
+    setDateElement() {
+        const nowDate = new Date;
+        const minDate = new Date;
+        minDate.setDate(nowDate.getDate() + 1);
+        const minDateStr = `${minDate.getFullYear()}-${minDate.getMonth() + 1}-${minDate.getDate()}`;
+        const maxDate = new Date;
+        maxDate.setDate(nowDate.getDate() + 15);
+        const maxDateStr = `${maxDate.getFullYear()}-${maxDate.getMonth() + 1}-${maxDate.getDate()}`;
+        const dateElement = document.getElementById('date');
+        dateElement.value = minDateStr;
+        dateElement.setAttribute('min', minDateStr);
+        dateElement.setAttribute('max', maxDateStr);
     }
 
     setControlBtns() {
@@ -253,6 +462,11 @@ class Mf_View {
             evt.preventDefault();
             this._controller.submitForm();
         });
+
+        document.getElementById('date').addEventListener('change', (evt) => {
+            console.log('change');
+            this.setDateTime();
+        });
     }
 
     changeState(changeStatus) {
@@ -285,6 +499,29 @@ class Mf_View {
                 this.currentStateNumber = changeStatus;
                 this.changeControlBtnsStatus();
                 break;
+        }
+    }
+
+    setDateTime() {
+        let selectedServiceID = this.getSelectedServiceID();
+        let selectedDay = document.getElementById('date').value;
+        let workTimeArr = this.controller.getWorkTime(selectedServiceID, selectedDay);
+        document.getElementsByName('work-hours-item').forEach((element) => {
+            element.hidden = true;
+        });
+        for (let j = 0; j < workTimeArr.length; j++) {
+            const workTime = workTimeArr[j];
+            document.getElementById(`work-hour-${workTime + 1}`).parentElement.hidden = false;
+        }
+    }
+
+    getSelectedServiceID() {
+        let adressList = document.getElementsByName('adress');
+        for (let i = 0; i < adressList.length; i++) {
+            const adressRedioElement = adressList[i];
+            if (adressRedioElement.checked) {
+                return adressRedioElement.id.slice(adressRedioElement.getAttribute('name').length + 1);
+            }
         }
     }
 
@@ -391,6 +628,16 @@ class Mf_Controller {
             document.getElementById().value = document.getElementById().value;
             document.getElementById().value = document.getElementById().value;
         }
+    }
+
+    getWorkTime(id, date) {
+        const adresses = this.model.getAdressList();
+        const dayTimesObj = adresses[`${+id - 1}`].time;
+        let currentDateMs = new Date;
+        let dateVisitMs = new Date(date);
+        let timeDiff = Math.abs(dateVisitMs - currentDateMs);
+        var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+        return dayTimesObj[`${diffDays}`];
     }
 }
 
