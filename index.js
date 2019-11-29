@@ -1,7 +1,7 @@
 const MODEL_DATA_ADRESSLIST = {
     "0": {
         "adress": 'Адресс - 1',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.926574, 37.399856",
         "time": {
             "1": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
             "2": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -21,7 +21,7 @@ const MODEL_DATA_ADRESSLIST = {
     },
     "1": {
         "adress": 'Адресс - 2',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.856574, 37.185856",
         "time": {
             "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
             "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -41,7 +41,7 @@ const MODEL_DATA_ADRESSLIST = {
     },
     "2": {
         "adress": 'Адресс - 3',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.834574, 37.873856",
         "time": {
             "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
             "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -61,7 +61,7 @@ const MODEL_DATA_ADRESSLIST = {
     },
     "3": {
         "adress": 'Адресс - 4',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.851574, 37.590856",
         "time": {
             "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
             "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -81,7 +81,7 @@ const MODEL_DATA_ADRESSLIST = {
     },
     "4": {
         "adress": 'Адресс - 5',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.742574, 37.683856",
         "time": {
             "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
             "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -101,7 +101,7 @@ const MODEL_DATA_ADRESSLIST = {
     },
     "5": {
         "adress": 'Адресс - 6',
-        "coords": "36.56667777, 34.6556777",
+        "coords": "55.991574, 37.663856",
         "time": {
             "1": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
             "2": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
@@ -166,8 +166,8 @@ class Mf_View {
                                     <fieldset class="mf-mf__fs" id="mf-mf__fs-4" hidden>
                                         <div class="mf-fs__description">Выберите адрес сервисного центра в котором хотите пройти обслуживание</div>
                                         <div class="mf-fs__controls">
-                                            <div class="fs__map-container">
-                                                Тут будет карта
+                                            <div class="fs__map-container" id="fs__map-container">
+                                                    
                                             </div>
                                             <ul class="adress-list" id="adress-list">
                                             
@@ -409,6 +409,62 @@ class Mf_View {
             this.changeControlBtnsStatus();
             this.controller.setAdressList();
             this.setDateElement();
+
+            //работа с картой
+            let mapScript = document.createElement('script');
+            mapScript.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
+
+            document.head.append(mapScript);
+
+            mapScript.addEventListener('load', (evt) => {
+                this.setMap(this.controller.adressList);
+            });
+        });
+    }
+
+    setMap(adressList) {
+        ymaps.ready(() => {
+            let myMap = new ymaps.Map('fs__map-container', {
+                center: [55.751574, 37.573856],
+                zoom: 9
+            }, {
+                searchControlProvider: 'yandex#search'
+            });
+
+            let MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+            )
+
+            for (const adress in adressList) {
+                if (adressList.hasOwnProperty(adress)) {
+                    const serviceCoords = adressList[`${adress}`].coords.split(', ');
+                    const adressText = adressList[`${adress}`].adress;
+
+                    const servicePlacemark = new ymaps.Placemark(serviceCoords, {
+                        hintContent: adressText,
+                        //balloonContent: 'Это красивая метка'
+                    }, {
+                        // Опции.
+                        // Необходимо указать данный тип макета.
+                        iconLayout: 'default#image',
+                        // Своё изображение иконки метки.
+                        iconImageHref: 'img/icon.svg',
+                        // Размеры метки.
+                        iconImageSize: [120, 120],
+                        // Смещение левого верхнего угла иконки относительно
+                        // её "ножки" (точки привязки).
+                        iconImageOffset: [-60, -60]
+                    });
+
+                    servicePlacemark.events.add(['click'], (evt) => {
+                        document.getElementById(`adress-${+adress + 1}`).checked = true;
+                    });
+
+                    myMap.geoObjects.add(servicePlacemark);
+                }
+            }
+
+            //document.getElementById()myMap.container.fitToViewport();
         });
     }
 
@@ -582,6 +638,14 @@ class Mf_Controller {
         this._clientStatus = !!status;
     }
 
+    get adressList() {
+        return this._adressList;
+    }
+
+    set adressList(adresses) {
+        this._adressList = adresses
+    }
+
     submitForm() {
         console.log('submit by controller');
 
@@ -589,6 +653,7 @@ class Mf_Controller {
 
     setAdressList() {
         let adresses = this.model.getAdressList();
+        this.adressList = adresses;
         let listHTML = '';
         let counter = 0;
         for (const key in adresses) {
