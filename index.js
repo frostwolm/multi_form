@@ -474,7 +474,7 @@ class Mf_View {
         minDate.setDate(nowDate.getDate() + 1);
         const minDateStr = `${minDate.getFullYear()}-${minDate.getMonth() + 1}-${minDate.getDate()}`;
         const maxDate = new Date;
-        maxDate.setDate(nowDate.getDate() + 15);
+        maxDate.setDate(nowDate.getDate() + 14);
         const maxDateStr = `${maxDate.getFullYear()}-${maxDate.getMonth() + 1}-${maxDate.getDate()}`;
         const dateElement = document.getElementById('date');
         dateElement.value = minDateStr;
